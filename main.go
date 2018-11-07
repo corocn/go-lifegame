@@ -1,22 +1,23 @@
 package main
 
 import (
-	"time"
-	"os/exec"
 	"os"
+	"os/exec"
+	"time"
 )
 
-var tate = 5
-var yoko = 5
+var tate = 6
+var yoko = 6
 var cells [][]int
 
 func main() {
 	cells = [][]int{
-		{0, 0, 0, 0, 0},
-		{0, 0, 1, 0, 0},
-		{0, 0, 1, 0, 0},
-		{0, 0, 1, 0, 0},
-		{0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0},
+		{0, 1, 1, 0, 0, 0},
+		{0, 1, 1, 0, 0, 0},
+		{0, 0, 0, 1, 1, 0},
+		{0, 0, 0, 1, 1, 0},
+		{0, 0, 0, 0, 0, 0},
 	}
 
 	for {
@@ -28,11 +29,12 @@ func main() {
 
 func nextCells() [][]int {
 	next_cells := [][]int{
-		{0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0},
 	}
 
 	for y := 0; y < tate; y++ {
@@ -47,9 +49,9 @@ func nextCells() [][]int {
 }
 
 func countNeighbors(x int, y int) int {
-  count := 0
-  count += getCell(x-1, y-1) + getCell(x, y-1) + getCell(x+1, y-1)
-	count += getCell(x-1, y) 											+ getCell(x+1, y)
+	count := 0
+	count += getCell(x-1, y-1) + getCell(x, y-1) + getCell(x+1, y-1)
+	count += getCell(x-1, y) + getCell(x+1, y)
 	count += getCell(x-1, y+1) + getCell(x, y+1) + getCell(x+1, y+1)
 	return count
 }
@@ -98,4 +100,3 @@ func display() {
 		print("\n")
 	}
 }
-
