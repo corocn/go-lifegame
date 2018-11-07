@@ -1,0 +1,3 @@
+# go-lifegame
+
+lifegame sample
